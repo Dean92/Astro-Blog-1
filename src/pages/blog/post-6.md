@@ -1,10 +1,10 @@
 ---
 layout: '../../layouts/BlogPostLayout.astro'
-title: JavaScript SchmavaScript
+title: The Angry Developer
 date: 2022-12-05
-author: Victoria Greenfelder
+author: Dirk Dangles
 image: { src: '/images/post-6.jpg', alt: 'A picture of a coder' }
-description: This is a blog post about the JavaScript programming language. Like it, love it, hate it, it's here to stay.
+description: This is a blog post about the JavaScript programming language. Get Angry.
 draft: false
 category: Reference Docs
 ---
