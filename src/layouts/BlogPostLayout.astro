@@ -14,7 +14,7 @@ const relatedPosts = formattedPosts.filter(post => post.frontmatter.category.toL
 ---
 
 <MainLayout {title} {description}>
-  <PostHeader {title} {description} {date} {category} {author} {image} />
+  <PostHeader {title} {description} {date} {category} {author} image={frontmatter.image} {frontmatter} robots={frontmatter.robots} />
   <div class="post-content">
     <div class="content">
       <slot />
