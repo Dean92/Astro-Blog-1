@@ -4,10 +4,10 @@ import Link from './Link.astro';
 import { slugify, formatDate } from '../js/utils';
 const { post } = Astro.props;
 
-const { frontmatter, url, tagType } = Astro.props;
+const { data, url, tagType } = Astro.props;
 const Tag = tagType;
 
-const { title, date, author, image, description, category } = frontmatter;
+const { title, date, author, image, description, category } = data;
 ---
 
 <article class="card">
@@ -15,14 +15,14 @@ const { title, date, author, image, description, category } = frontmatter;
     <small>
       <a href={`/category/${slugify(category)}/`} class="badge">{category}</a>
     </small>
-    <a href={url} aria-hidden="true" tabindex="-1"><Image src={image.src} alt={image.alt} width={400} height={250} format="webp" fit="cover" quality={80} aspectRatio="4:1" class="hero-image" /></a>
+    <a href={`/blog/${url}`} aria-hidden="true" tabindex="-1"><Image src={image.src} alt={image.alt} width={400} height={250} format="webp" fit="cover" quality={80} aspectRatio="4:1" class="hero-image" /></a>
     <div class="content">
       <div>
-        <Tag class="h3"><a href={url}>{title}</a></Tag>
+        <Tag class="h3"><a href={`/blog/${url}`}>{title}</a></Tag>
         <small>by <a href={`/author/${slugify(author)}/`}>{author}</a> &sdot; {formatDate(date)}</small>
       </div>
     </div>
     <p>{description}</p>
-    <Link href={url} text="Read Post" style="secondary" />
+    <Link href={`/blog/${url}/`} text="Read Post" style="secondary" />
   </div>
 </article>

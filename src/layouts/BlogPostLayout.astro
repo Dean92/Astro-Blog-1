@@ -6,15 +6,15 @@ import MainLayout from './MainLayout.astro';
 import RelatedPosts from '../components/RelatedPosts.astro';
 import { formatBlogPosts } from '../js/utils';
 
-const { frontmatter } = Astro.props;
-const { title, description, date, category, author, image } = frontmatter;
+const { data } = Astro.props;
+const { title, description, date, category, author, image } = data;
 const allPosts = await Astro.glob('../pages/blog/*.md');
 const formattedPosts = formatBlogPosts(allPosts, { sortByDate: false });
-const relatedPosts = formattedPosts.filter(post => post.frontmatter.category.toLowerCase() === category.toLowerCase() && post.frontmatter.title !== title).slice(0, 3);
+const relatedPosts = formattedPosts.filter(post => post.data.category.toLowerCase() === category.toLowerCase() && post.data.title !== title).slice(0, 3);
 ---
 
 <MainLayout {title} {description}>
-  <PostHeader {title} {description} {date} {category} {author} image={frontmatter.image} {frontmatter} robots={frontmatter.robots} />
+  <PostHeader {title} {description} {date} {category} {author} image={data.image} {data} robots={data.robots} />
   <div class="post-content">
     <div class="content">
       <slot />
